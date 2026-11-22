@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dragon Tiger Eric</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>Dragon Tiger Eric</h1>
+      <div class="balance" aria-live="polite">
+        <span class="label">Balance</span>
+        <strong id="balance">1,000</strong>
+      </div>
+    </header>
+
+    <section class="table" aria-label="Card table">
+      <div class="seat dragon" id="seat-dragon">
+        <h2>Dragon</h2>
+        <div class="card" id="card-dragon" aria-label="Dragon card">
+          <div class="face back"></div>
+          <div class="face front"><span class="rank"></span><span class="suit"></span></div>
+        </div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="seat tiger" id="seat-tiger">
+        <h2>Tiger</h2>
+        <div class="card" id="card-tiger" aria-label="Tiger card">
+          <div class="face back"></div>
+          <div class="face front"><span class="rank"></span><span class="suit"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="result" class="result" role="status" aria-live="assertive">Choose a side and a bet to begin.</div>
+
+    <section class="controls" aria-label="Betting">
+      <div class="sides" role="group" aria-label="Bet on">
+        <button class="side dragon" data-side="dragon">Dragon <small>pays 1:1</small><em class="stake"></em></button>
+        <button class="side tie" data-side="tie">Tie <small>pays 8:1</small><em class="stake"></em></button>
+        <button class="side tiger" data-side="tiger">Tiger <small>pays 1:1</small><em class="stake"></em></button>
+      </div>
+
+      <div class="chips" role="group" aria-label="Bet amount" id="chips"></div>
+
+      <p class="summary" id="summary">No bet selected.</p>
+
+      <div class="actions">
+        <button id="btn-bet" class="primary">Place Bet</button>
+        <button id="btn-clear" class="ghost">Clear Bets</button>
+        <button id="btn-new">New Round</button>
+        <button id="btn-reset" class="ghost">Reset Balance</button>
+        <button id="btn-sound" class="ghost" aria-pressed="true">Sound: On</button>
+      </div>
+    </section>
+
+    <section class="history" aria-label="Scoreboard">
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" data-tab="bigroad">Big Road</button>
+        <button class="tab" role="tab" data-tab="bead">Bead Plate</button>
+        <button class="tab" role="tab" data-tab="stats">Stats</button>
+      </div>
+      <div class="board" id="board"></div>
+    </section>
+  </main>
+  <div id="win-pop" class="win-pop" aria-hidden="true">
+    <span class="win-caption"></span>
+    <strong class="win-amount"></strong>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
